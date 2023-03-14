@@ -1,0 +1,19 @@
+package tree;
+import java.util.*;
+
+public class Main {
+	public static void main(String[] args) {
+	     BinaryTree tree=new BinaryTree();
+	     int[] arr=new int[] {45,10,7,12,90,50,70};
+	     for(int i:arr) {
+	    	 tree.insertTotree(i);
+	     }
+	     tree.inOrder();
+	     System.out.println();
+	     tree.preOrder();
+	     System.out.println();
+	     tree.postOrder();
+	     System.out.println();
+	     tree.normalTraversal();
+	}
+}
