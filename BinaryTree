@@ -1,0 +1,69 @@
+package tree;
+
+class BinaryTree {
+    Node root;
+    public void insertTotree(int data) {
+    	root=insert(root,data);
+    }
+    public Node insert(Node root,int data) {
+    	if(root==null) {
+    		root=new Node(data);
+    		return root;
+    	}
+    	else {
+    		if(root.data>data) {
+    			root.left=insert(root.left,data);
+    		}
+    		if(root.data<data) {
+    			root.right=insert(root.right,data);
+    		}
+    	}
+    	return root;
+    }
+    public void inOrder() {
+    	inOrderTraversal(root);
+    }
+    public void preOrder() {
+    	preOrderTraversal(root);
+    }
+    public void postOrder() {
+    	postOrderTraversal(root);
+    }
+    public void normalTraversal() {
+    	traversal(root);
+    }
+    public void inOrderTraversal(Node root) {
+    	if(root!=null) {
+    	inOrderTraversal(root.left);
+    	System.out.print(root.data+"->");
+    	inOrderTraversal(root.right);
+    	}
+    }
+    public void postOrderTraversal(Node root) {
+    	if(root!=null) {
+    	postOrderTraversal(root.left);
+    	postOrderTraversal(root.right);
+    	System.out.print(root.data+"->");
+    	}
+    }
+    public void preOrderTraversal(Node root) {
+    	if(root!=null) {
+    	System.out.print(root.data+"->");
+    	preOrderTraversal(root.left);
+    	preOrderTraversal(root.right);
+    	}
+    }
+    public void traversal(Node root) {
+    	while(root!=null) {
+    		System.out.print(root.data+"->");
+    		if(root.data>(root.left).data) {
+    			root=root.left;
+    		}
+    		else {
+    			root=root.right;
+    		}
+    		
+    		
+    	}
+    }
+}
